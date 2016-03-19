@@ -12,8 +12,13 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/mileszs/wicked_pdf'
   spec.license       = 'MIT'
   spec.date          = Time.now.strftime('%Y-%m-%d')
+  spec.description   = <<desc
+Wicked PDF uses the shell utility wkhtmltopdf to serve a PDF file to a user from HTML.
+In other words, rather than dealing with a PDF generation DSL of some sort,
+you simply write an HTML view as you would normally, and let Wicked take care of the hard stuff.
+desc
 
-  spec.files         = `git ls-files`.split($INPUT_RECORD_SEPARATOR)
+  spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
@@ -25,10 +30,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'sqlite3'
   spec.add_development_dependency 'mocha'
   spec.add_development_dependency 'test-unit'
-
-  spec.description       = <<desc
-Wicked PDF uses the shell utility wkhtmltopdf to serve a PDF file to a user from HTML.
-In other words, rather than dealing with a PDF generation DSL of some sort,
-you simply write an HTML view as you would normally, and let Wicked take care of the hard stuff.
-desc
 end
